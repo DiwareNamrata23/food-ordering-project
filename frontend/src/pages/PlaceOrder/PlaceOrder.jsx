@@ -1,7 +1,9 @@
-import React, { useContext,  useState } from 'react'
+import React, { useEffect, useContext,  useState } from 'react'
 import './PlaceOrder.css'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
+// import { get } from 'cheerio/dist/commonjs/api/traversing'
+import { useNavigate } from 'react-router-dom';
 const PlaceOrder = () => {
   const {getTotalCartAmount,token,food_list,cartItems,url}=useContext(StoreContext)
 
@@ -50,6 +52,17 @@ let response =await axios.post(url+"/api/order/place",orderData,{headers:{token}
 
  }
 }
+const navigate= useNavigate();
+useEffect(() => {
+  if(!token) {
+  navigate('/cart');
+  }
+  else if(getTotalCartAmount()===0){
+
+    navigate('/cart');
+
+  }
+},[token])
 
   return (
     <form onSubmit={placeOrder} className='place-order'>
