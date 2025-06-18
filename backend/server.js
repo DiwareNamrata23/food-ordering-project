@@ -13,7 +13,11 @@ const port = 4000
 
 // middleware
 app.use(express.json())   // request from frontend for backend will be parsed from this
-app.use(cors())  // can access backend from frontend
+app.use(cors({
+    origin: ['http://localhost:5173', 'http://localhost:5174'], // ✅ Allow both
+    credentials: true,
+  }));
+    // can access backend from frontend
 
 // db connection
 connectDb();
