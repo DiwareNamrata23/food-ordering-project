@@ -45,4 +45,3 @@ app.listen(port,()=>{
     
 })
 
-// mongodb+srv://Sania:$ania0309@cluster0.dee3fpy.mongodb.net/?
