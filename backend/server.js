@@ -9,7 +9,7 @@ import orderRouter from "./routes/orderRoutes.js";
 
 // app config
 const app = express()
-const port = 4000||  'https://food-ordering-project-aq89.vercel.app'|| 'https://food-ordering-project-5pr6-qsqsldcgm-namrata-diwares-projects.vercel.app' 
+const port = process.env.PORT || 4000;
 
 // middleware
 app.use(express.json())   // request from frontend for backend will be parsed from this
