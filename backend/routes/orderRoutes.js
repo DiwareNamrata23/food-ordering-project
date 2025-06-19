@@ -7,6 +7,10 @@ const orderRouter = express.Router();
 orderRouter.get('/debug', (req, res) => {
     res.send("✅ Order router is working");
   });
+  orderRouter.get('/verify', (req, res) => {
+    res.status(405).json({ success: false, message: 'GET not allowed. Use POST.' });
+  });
+  
 
 orderRouter.post('/place', authMiddleware, placeOrder);
 orderRouter.post('/verify', verifyOrder);
