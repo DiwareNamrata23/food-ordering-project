@@ -1,10 +1,10 @@
 import React, {  useState } from 'react'
 import './Add.css'
 import {assets} from '../../assets/assets'
-import axios from 'axios';
+import axios from "axios";
 import { toast } from 'react-toastify';
+
 const Add = ({url}) => {
-// const url="http://localhost:4000";
 
   const[image,setImage]=useState(false);
   const[data,setData]=useState({
@@ -31,7 +31,7 @@ const Add = ({url}) => {
     formdata.append("category",data.category)
     formdata.append("image",image)
      
-    const response=await axios.post(`${url}/api/food/add`,formdata)
+    const response=await axios.post(`${url}/api/food/add` ,formdata)
     if(response.data.success){
       setData({
       name:"",
@@ -43,7 +43,7 @@ const Add = ({url}) => {
     toast.success(response.data.message)
     }
     else{
-  toast.error(response.data.message)
+        toast.error(response.data.message)
     }
   }
 
@@ -74,7 +74,7 @@ const Add = ({url}) => {
             <select onChange={onChangeHandler}  name="category" >
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
-              <option value="Dessert">Dessert</option>
+              <option value="Deserts">Deserts</option>
               <option value="Sandwich">Sandwich</option>
               <option value="Cake">Cake</option>
               <option value="Pure Veg">Pure Veg</option>
