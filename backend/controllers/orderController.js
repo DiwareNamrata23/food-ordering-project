@@ -1,13 +1,15 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 import Stripe from "stripe";
+import 'dotenv/config';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
  
 
 // placing user order from frontend
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5174 || https://food-ordering-project-5pr6-qsqsldcgm-namrata-diwares-projects.vercel.app || https://food-ordering-project-aq89.vercel.app"; // ✅ Updated URL to match your frontend
+  const frontend_url  = process.env.FRONTEND_URL;
+  ; // ✅ Updated URL to match your frontend
 
   try {
     const newOrder = new orderModel({

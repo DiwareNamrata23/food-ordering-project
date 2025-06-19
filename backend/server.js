@@ -61,7 +61,8 @@ app.get("/", (req, res)=>{  // http method -> we can request data from server
 })    
 
 app.listen(port,()=>{
-    console.log(`Server Started on http://localhost:${port}`)
+  console.log(`✅ Server started on port ${port}`);
+
     
 })
 

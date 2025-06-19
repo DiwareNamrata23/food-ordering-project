@@ -4,6 +4,10 @@ import { placeOrder, verifyOrder ,userOrder ,listOrders, updateStatus} from '../
 
 const orderRouter = express.Router();
 
+orderRouter.get('/debug', (req, res) => {
+    res.send("✅ Order router is working");
+  });
+
 orderRouter.post('/place', authMiddleware, placeOrder);
 orderRouter.post('/verify', verifyOrder);
 orderRouter.post('/userorder', authMiddleware,userOrder);
